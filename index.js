@@ -250,21 +250,27 @@ function getGermanCars(carArr) {
  * @instructions
  * Create arrow function versions of the following commented-out functions:
  * 
- * const sum = function (a, b) {
+ * const sum = (a, b)=> {
  *   return a + b
  * }
  * 
- * const addFive = function(num) {
+ * const addFive =(num)=> {
 *    return num + 5
  * }
  *
- * const argTimesTwo = function (num) {
+ * const argTimesTwo = (num)=> {
  *   return num * 2
  * }
 */
-const sum = null; // code here!
-const addFive = null; // code here!
-const argTimesTwo = null; // code here!
+const sum = (a, b) => {
+  return a + b
+}
+const addFive = (num) => {
+  return num + 5
+}
+const argTimesTwo = (num) => {
+  return num * 2
+}
 
 /**
  * ### Challenge `carMaker`
@@ -279,8 +285,14 @@ const argTimesTwo = null; // code here!
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
-  /* code here */
+function carMaker(odometer) {
+  return {
+    odometer,
+    drive: function(dist) {
+      this.odometer = this.odometer + dist
+      return this.odometer
+    }
+  }
 }
 
 /// ////// END OF CHALLENGE /////////
