@@ -58,7 +58,7 @@ const makePersonObject = (id, name, email) => {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-const getName = ({name}) =>  `Hello, my name is ${name}`
+const getName = ({ name }) => `Hello, my name is ${name}`
 
 /**
  * ### Challenge `makeSmartPerson`
@@ -73,9 +73,9 @@ const getName = ({name}) =>  `Hello, my name is ${name}`
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-const makeSmartPerson = (name) =>  ({
+const makeSmartPerson = (name) => ({
   name,
-  sum: (num1, num2) => num1+num2,
+  sum: (num1, num2) => num1 + num2,
   speak: () => `Hello, my name is ${name}`,
 })
 
@@ -133,7 +133,7 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
 */
-const getCarInfoByIndex =(inventory, index) => `The car is a ${inventory[index].car_make} ${inventory[index].car_model}`
+const getCarInfoByIndex = (inventory, index) => `The car is a ${inventory[index].car_make} ${inventory[index].car_model}`
 
 /**
  * ### Challenge `getLastCarInfo`
@@ -146,8 +146,8 @@ const getCarInfoByIndex =(inventory, index) => `The car is a ${inventory[index].
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-const getLastCarInfo = (carArr) =>  {
-  const last = carArr.length -1 
+const getLastCarInfo = (carArr) => {
+  const last = carArr.length - 1
   return `This is a ${carArr[last].car_make} ${carArr[last].car_model}`
 }
 
@@ -163,9 +163,16 @@ const getLastCarInfo = (carArr) =>  {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+const getCarInfoById = (carArr, id) => {
+  for (let i = 0; i < carArr.length; i++) {
+    if (carArr[i].id === id) {
+      return `This is a ${carArr[i].car_make} ${carArr[i].car_model}`
+    }
+  }
+  return "Car not found"
 }
+
+
 
 /**
  * ### Challenge `sortCarInventory`
