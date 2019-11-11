@@ -180,7 +180,7 @@ const getCarInfoById = (carArr, id) => {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-const sortCarInventory = (carArr) => carArr.sort((a, b) => b.car_model !== a.car_model? a.car_model < b.car_model ? -1 : 1 : 0)
+const sortCarInventory = (carArr) => carArr.sort((a, b) => b.car_model !== a.car_model ? a.car_model < b.car_model ? -1 : 1 : 0)
 
 /**
  * ### Challenge `getModelYears`
@@ -193,8 +193,8 @@ const sortCarInventory = (carArr) => carArr.sort((a, b) => b.car_model !== a.car
 */
 function getModelYears(carArr) {
   const yearArr = []
-  for (let i = 0 ; i < carArr.length; i++) {
-    yearArr.push(carArr[i].car_year) 
+  for (let i = 0; i < carArr.length; i++) {
+    yearArr.push(carArr[i].car_year)
   }
   return yearArr
 }
@@ -211,8 +211,14 @@ function getModelYears(carArr) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
+function getOlderCars(carArr, maxYear) {
+  const oldCars = []
+  for (let i = 0; i < carArr.length; i++) {
+    if (carArr[i].car_year <= maxYear) {
+      oldCars.push(carArr[i])
+    }
+  }
+  return oldCars
 }
 
 /**
@@ -226,8 +232,16 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars(carArr) {
+  const carGerman = []
+  for (let i = 0; i < carArr.length; i++) {
+    const car = carArr[i]
+    const carMake = car.car_make
+    if (carMake === 'Audi' || carMake === 'Mercedes-Benz' || carMake === `Volkswagen` || carMake === `BMW`) {
+      carGerman.push(car)
+    }
+  }
+  return carGerman
 }
 
 /**
