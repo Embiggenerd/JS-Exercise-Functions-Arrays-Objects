@@ -172,8 +172,6 @@ const getCarInfoById = (carArr, id) => {
   return "Car not found"
 }
 
-
-
 /**
  * ### Challenge `sortCarInventory`
  * 
@@ -182,9 +180,7 @@ const getCarInfoById = (carArr, id) => {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(/* code here */) {
-  /* code here */
-}
+const sortCarInventory = (carArr) => carArr.sort((a, b) => b.car_model !== a.car_model? a.car_model < b.car_model ? -1 : 1 : 0)
 
 /**
  * ### Challenge `getModelYears`
